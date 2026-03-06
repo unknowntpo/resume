@@ -1,0 +1,162 @@
+%% From https://www.latextemplates.com/template/medium-length-professional-cv
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Professional CV
+% LaTeX Template
+% Version 3.0 (December 17, 2022)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% Author:
+% Vel (vel@latextemplates.com)
+%
+% Original author:
+% Trey Hunner (http://www.treyhunner.com/)
+%
+% License:
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	%a4paper, % Uncomment for A4 paper size (default is US letter)
+	11pt, % Default font size, can use 10pt, 11pt or 12pt
+]{resume} % Use the resume class
+
+% \usepackage{ebgaramond} % Use the EB Garamond font
+% \usepackage{fontspec}
+% \newfontfamily\vfont{Caladea}
+% \setmainfont{Caladea}
+
+%------------------------------------------------
+
+\name{Eric  (Chen-Chien) Chang} % Your name to appear at the top
+
+% You can use the \address command up to 3 times for 3 different addresses or pieces of contact information
+% Any new lines (\\) you use in the \address commands will be converted to symbols, so each address will appear as a single line.
+
+% \address{123 Broadway \\ City, State 12345} % Main address
+
+% \address{123 Pleasant Lane \\ City, State 12345} % A secondary address (optional)
+
+% \address {alxtz.tw@gmail.com \\ github.com/alxtz \\ linkedin.com/in/alxtz}
+
+\address{Email: {\color{teal}{\underline{\href{e850506@gmail.com}{e850506@gmail.com}}}}}
+\address{Phone: {\color{teal}{\underline{+886-932786506}}}}
+\address{Blog: {\color{teal}{\underline{\href{https://blog.unknowntpo.me/}{https://blog.unknowntpo.me/}}}}}
+\address{Github: {\color{teal}{\underline{\href{https://github.com/unknowntpo/}{https://github.com/unknowntpo/}}}}}
+
+% \item Test \href{https://www.example.com}{\color{teal}\underline{Visit Example}}
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	DESCRIPTION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Description}
+\begin{rSubsection}{}{}{}{}
+            \item \textbf{Apache Gravitino Committer} and \textbf{Apache Kafka Contributor} (Apache Foundation Top-Level Projects)
+            \item Experienced in \textbf{Performance Tuning} (SQL, Backend Service)
+            \item \textbf{Fast Learner}, can pick up numerous toolings and use it to solve real world problems
+            \item Tech Stack: \textbf{Go}, \textbf{Java}, \textbf{Typescript}, \textbf{Python}, \textbf{PostgreSQL}, \textbf{Kafka}, \textbf{Docker}, \textbf{Kubernetes}
+	\end{rSubsection}
+
+\end{rSection}
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Experience}
+    \begin{rSubsection}{Lawsnote}{January 2024 - December 2024}{Backend Software Engineer. Tech Stack: {\color{teal}\textbf{Typescript, NodeJS, Docker, MongoDB, Prometheus, Grafana}}}{Taipei, Taiwan}
+        \item Reduced first byte latency from \textbf{100s} to \textbf{5s} (\textbf{20x} faster) on CPU-intensive computation results with \textbf{HTTP Streaming}
+        \item Built data integrity monitoring system using \textbf{MinIO events} and \textbf{Elasticsearch} to proactively identify \textbf{data loss}, improving system reliability.
+        \item Identified and fixed \textbf{NAPI-rs package} problem with \textbf{Pyroscope NodeJS profiler}
+        \item Built \textbf{LLM service} to parse Law-related text with ambiguous rules       
+    \end{rSubsection}
+
+	\begin{rSubsection}{Mediatek (Contract)}{February 2022 - March 2023}{Backend Software Engineer. Tech Stack: {\color{teal}\textbf{Go, Linux, Docker, PostgreSQL}}}{Hsinchu, Taiwan}
+            \item Maintained a data warehouse for Low-Power Simulation and Benchmarking
+		\item {SQL Query Optimization: Reduced page-loading time of WebUI from \textbf{60s} to \textbf{1s} (\textbf{60x} faster) with \textbf{Index-Only Scan}: \color{teal}{\underline{\href{https://blog.unknowntpo.me/idx-only-scan/}{Blog Post}}}}
+            \item Used Continuous Profiling tool: \textbf{Pyroscope eBPF Spy} to find out performance bottleneck
+		\item Reduced time-consuming simulation job duration from \textbf{2hr} to \textbf{1 min} by leveraging \textbf{}{PostgreSQL Bulk Import} feature (bottleneck discovered by \textbf{Pyroscope})
+            \item Designed message queue based microservice architecture to scale up time-consuming tasks
+            \item {Reduced \textbf{50\%} memory consumption by using Golang \textbf{sync.Pool}:
+            \color{teal}{\underline{\href{https://blog.unknowntpo.me/syncpool/}{Blog Post}}}}
+            \item Designed a integration test fixture factory to increase robustness of our tests
+            \item Managed 5-node distributed service with tools like \textbf{Prometheus}, \textbf{Grafana}, \textbf{OpenTelemetry}, \textbf{Pyroscope}
+            \item Shared knowledge with team members in a study group
+	\end{rSubsection}
+
+	\begin{rSubsection}{National Chen-Kung University}{September 2017 - July 2019}{Research Assistant. Tech Stack: \color{teal}\textbf{Python, C}}{Tainan, Taiwan}
+            \item FDM 3D Printing Related Research (\textbf{Klipper Firmware}, 3D Printing Filament Research)
+            \item Experienced with \textbf{MicroPython}, \textbf{Arduino}
+	\end{rSubsection}
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	OpenSource contribution
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{OpenSource contribution}
+       \begin{rSubsection}{Apache Gravitino: A high-performance, geo-distributed and federated metadata lake (Apache Software Foundation)}{2024 - Present}{\color{teal}\underline{\href{https://github.com/apache/gravitino}{Apache Gravitino Committer, Tech Stack: \color{teal}\textbf{Java, Python, Docker, Kubernetes}}}}{}
+		\item Implemented container suite management for PostgreSQL and MySQL integration tests, significantly reducing resource consumption and improving test execution speed
+		\item Developed robust Docker image build workflows from source, reduced Hive Docker image size by \textbf{420MB}, ensuring reliable and reproducible builds
+		\item Ported partition-related interfaces from Java to Python client, enhanced CLI with multiple output formats, broadening platform accessibility
+		\item Optimized backend storage performance through batch listing implementation in RoleMetaService, reducing SQL query overhead and improving system scalability
+	\end{rSubsection}
+        \begin{rSubsection}{Apache Kafka: A distributed streaming platform}{2024 - Present}{\color{teal}\underline{\href{https://github.com/apache/kafka}{Apache Kafka Contributor, Tech Stack: \textbf{Java, JVM}}}}{}
+		\item Identified and fixed \textbf{JVM container awareness} problem in producer-performance test \textbf{IntelliJ Profiler}
+	\end{rSubsection}
+        \begin{rSubsection}{redis/rueidis: A fast Golang Redis client that does auto pipelining and supports client side caching (1.9k stars)}{Oct 2023 - Present}{\color{teal}\underline{\href{https://github.com/redis/rueidis/pull/395}{link to pull request, Tech Stack: \color{teal}\textbf{Go, Redis}}}}{}
+		\item Implemented go-redis API Adapter
+	\end{rSubsection}
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+	\begin{rSubsection}{National Taiwan Ocean University}{July 2013 - April 2017 (Drop Out)}{Electrical Engineering}{Taiwan}
+    		\item Acquired self-learning ability to learn anything and helped me to get my first job.
+    		\item Made me an open-minded person, willing to explore any interesting things.
+    		\item Made me a person who can understand the question behind the question (QBQ), and make the right decision in system design.
+	\end{rSubsection}
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	TECHNICAL STRENGTHS SECTION
+%----------------------------------------------------------------------------------------
+
+% \begin{rSection}{Technical Strengths}
+% 	\begin{tabular}{@{} >{\bfseries}l @{\hspace{6ex}} l @{}}
+% 		Computer Languages & Go, C, C++, Typescript, Python \\
+% 		Databases & MySQL, PostgreSQL \\
+%             Message Queue & Kafka, RabbitMQ, NSQ \\
+%             Cache & Redis \\
+%             Others & TCP/IP, HTTP, gRPC, Docker, Kubernetes
+% 	\end{tabular}
+
+% \end{rSection}
+
+
+%----------------------------------------------------------------------------------------
+%	EXAMPLE SECTION
+%----------------------------------------------------------------------------------------
+
+%\begin{rSection}{Section Name}
+
+	%Section content\ldots
+
+%\end{rSection}
+
+%----------------------------------------------------------------------------------------
+\printbibliography %Prints bibliography
+\end{document}
