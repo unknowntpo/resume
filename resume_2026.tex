@@ -28,6 +28,9 @@
 	11pt, % Default font size, can use 10pt, 11pt or 12pt
 ]{resume} % Use the resume class
 
+\usepackage[backend=biber,style=numeric]{biblatex}
+\addbibresource{sample.bib}
+
 % \usepackage{ebgaramond} % Use the EB Garamond font
 % \usepackage{fontspec}
 % \newfontfamily\vfont{Caladea}
@@ -158,5 +161,6 @@
 %\end{rSection}
 
 %----------------------------------------------------------------------------------------
+\nocite{*}
 \printbibliography %Prints bibliography
 \end{document}
