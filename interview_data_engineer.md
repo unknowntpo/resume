@@ -32,9 +32,16 @@ The Crawler itself has 3 internal stages:
 2. **Detail**: Digs into each specific law entry to fetch its full content and associated artifacts (e.g., attachments, amendment history).
 3. **Parser**: Parses the raw content and uploads the structured data to both **S3** (for archival/object storage) and the **Version Control System** (for diff generation).
 
-For failure, retries, data freshness.
+**Failure Handling:**
+Each stage processes data per record. If a record fails, we log its ID and record the failure reason in the database. Then we have a human review process — depending on the nature of that record, a legal specialist may manually edit the content and write it into the Version Control System, or we may intentionally leave it as failed. The decision depends on how legal professionals expect that data to look.
 
-Each stage
+If a government page is temporarily down, the crawled result will differ from the previous version. Our tracking system detects this discrepancy and sends a notification, and then a human confirms whether it's a page outage or an actual regulatory change.
+
+**Data Freshness:**
+The crawler runs on a scheduled basis — typically once a day, or two to three times a day, depending on how frequently we need to capture updates for a particular data source.
+
+**Idempotency:**
+Each record is identified by a unique ID. If a record has already been crawled, the system automatically skips it. However, we also support a force-overwrite mode to re-crawl and re-parse specific records when needed (e.g., after a bug fix in the parser).
 
 ---
 
