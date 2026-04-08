@@ -65,10 +65,10 @@
 
 \begin{rSection}{Description}
 \begin{rSubsection}{}{}{}{}
-            \item \textbf{Apache Gravitino Committer} and \textbf{Apache Kafka Contributor} (Apache Foundation Top-Level Projects)
+            \item \textbf{Apache Gravitino Committer}, \textbf{Apache Kafka Contributor}, and \textbf{Apache DataFusion Contributor} (Apache Foundation Top-Level Projects)
             \item Experienced in \textbf{Performance Tuning} (SQL, Backend Service)
             \item \textbf{Fast Learner}, can pick up numerous toolings and use it to solve real world problems
-            \item Tech Stack: \textbf{Go}, \textbf{Java}, \textbf{Typescript}, \textbf{Python}, \textbf{PostgreSQL}, \textbf{Kafka}, \textbf{Docker}, \textbf{Kubernetes}
+            \item Tech Stack: \textbf{Go}, \textbf{Java}, \textbf{Rust}, \textbf{Typescript}, \textbf{Python}, \textbf{PostgreSQL}, \textbf{Kafka}, \textbf{Docker}, \textbf{Kubernetes}
 	\end{rSubsection}
 
 \end{rSection}
@@ -118,6 +118,12 @@
         \begin{rSubsection}{Apache Kafka: A distributed streaming platform}{2024 - Present}{\color{teal}\underline{\href{https://github.com/apache/kafka}{Apache Kafka Contributor, Tech Stack: \textbf{Java, JVM}}}}{}
 		\item Identified and fixed \textbf{JVM container awareness} problem in producer-performance test \textbf{IntelliJ Profiler}
 		\item Ensured offsets are committed before partition switch: {\color{teal}\underline{\href{https://github.com/apache/kafka/pull/21584}{PR \#21584}}}
+	\end{rSubsection}
+        \begin{rSubsection}{Apache DataFusion: A fast, embeddable query engine written in Rust (Apache Software Foundation)}{2025 - Present}{\color{teal}\underline{\href{https://github.com/apache/datafusion}{Apache DataFusion Contributor, Tech Stack: \color{teal}\textbf{Rust, Apache Arrow}}}}{}
+		\item Implemented Spark-compatible \texttt{str\_to\_map} function in \texttt{datafusion-spark} crate using Arrow's \texttt{MapBuilder}, supporting per-row delimiters, null handling, and EXCEPTION duplicate-key policy: {\color{teal}\underline{\href{https://github.com/apache/datafusion/pull/20120}{PR \#20120}}} (merged Feb 2026)
+	\end{rSubsection}
+        \begin{rSubsection}{Apache DataFusion Comet: A high-performance Spark accelerator built on DataFusion (Apache Software Foundation)}{2025 - Present}{\color{teal}\underline{\href{https://github.com/apache/datafusion-comet}{Apache DataFusion Comet Contributor, Tech Stack: \color{teal}\textbf{Rust, Scala, Apache Spark}}}}{}
+		\item Wired \texttt{StringToMap} Spark expression to native \texttt{SparkStrToMap} UDF, enabling native acceleration for Spark map-creation workloads; added SQL file test coverage via \texttt{CometSqlFileTestSuite}: {\color{teal}\underline{\href{https://github.com/apache/datafusion-comet/pull/3654}{PR \#3654}}}
 	\end{rSubsection}
         \begin{rSubsection}{redis/rueidis: A fast Golang Redis client that does auto pipelining and supports client side caching (1.9k stars)}{Oct 2023 - Present}{\color{teal}\underline{\href{https://github.com/redis/rueidis/pull/395}{link to pull request, Tech Stack: \color{teal}\textbf{Go, Redis}}}}{}
 		\item Implemented go-redis API Adapter
