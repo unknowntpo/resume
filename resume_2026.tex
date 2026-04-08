@@ -49,8 +49,7 @@
 
 % \address {alxtz.tw@gmail.com \\ github.com/alxtz \\ linkedin.com/in/alxtz}
 
-\address{Email: {\color{teal}{\underline{\href{e850506@gmail.com}{e850506@gmail.com}}}}}
-\address{Phone: {\color{teal}{\underline{+886-932786506}}}}
+\address{Email: {\color{teal}{\underline{\href{mailto:e850506@gmail.com}{e850506@gmail.com}}}} \\ Phone: {\color{teal}{\underline{+886-932786506}}}}
 \address{Blog: {\color{teal}{\underline{\href{https://blog.unknowntpo.me/}{https://blog.unknowntpo.me/}}}}}
 \address{Github: {\color{teal}{\underline{\href{https://github.com/unknowntpo/}{https://github.com/unknowntpo/}}}}}
 
@@ -109,23 +108,23 @@
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{OpenSource contribution}
-       \begin{rSubsection}{Apache Gravitino: A high-performance, geo-distributed and federated metadata lake (Apache Software Foundation)}{2024 - Present}{\color{teal}\underline{\href{https://github.com/apache/gravitino}{Apache Gravitino Committer, Tech Stack: \color{teal}\textbf{Java, Python, Docker, Kubernetes}}}}{}
+       \begin{rSubsection}{Apache Gravitino: A high-performance, geo-distributed and federated metadata lake (Apache Software Foundation)}{2024 - Present}{Apache Gravitino Committer. Tech Stack: {\color{teal}\textbf{Java, Python, Docker, Kubernetes}}}{{\color{teal}\underline{\href{https://github.com/apache/gravitino}{GitHub}}}}
 		\item Implemented container suite management for PostgreSQL and MySQL integration tests, significantly reducing resource consumption and improving test execution speed
 		\item Developed robust Docker image build workflows from source, reduced Hive Docker image size by \textbf{420MB}, ensuring reliable and reproducible builds
 		\item Ported partition-related interfaces from Java to Python client, enhanced CLI with multiple output formats, broadening platform accessibility
 		\item Optimized backend storage performance through batch listing implementation in RoleMetaService, reducing SQL query overhead and improving system scalability
 	\end{rSubsection}
-        \begin{rSubsection}{Apache Kafka: A distributed streaming platform}{2024 - Present}{\color{teal}\underline{\href{https://github.com/apache/kafka}{Apache Kafka Contributor, Tech Stack: \textbf{Java, JVM}}}}{}
+        \begin{rSubsection}{Apache Kafka: A distributed streaming platform}{2024 - Present}{Apache Kafka Contributor. Tech Stack: {\color{teal}\textbf{Java, JVM}}}{{\color{teal}\underline{\href{https://github.com/apache/kafka}{GitHub}}}}
 		\item Identified and fixed \textbf{JVM container awareness} problem in producer-performance test \textbf{IntelliJ Profiler}
 		\item Ensured offsets are committed before partition switch: {\color{teal}\underline{\href{https://github.com/apache/kafka/pull/21584}{PR \#21584}}}
 	\end{rSubsection}
-        \begin{rSubsection}{Apache DataFusion: A fast, embeddable query engine written in Rust (Apache Software Foundation)}{2025 - Present}{\color{teal}\underline{\href{https://github.com/apache/datafusion}{Apache DataFusion Contributor, Tech Stack: \color{teal}\textbf{Rust, Apache Arrow}}}}{}
+        \begin{rSubsection}{Apache DataFusion: A fast, embeddable query engine written in Rust (Apache Software Foundation)}{2025 - Present}{Apache DataFusion Contributor. Tech Stack: {\color{teal}\textbf{Rust, Apache Arrow}}}{{\color{teal}\underline{\href{https://github.com/apache/datafusion}{GitHub}}}}
 		\item Implemented Spark-compatible \texttt{str\_to\_map} function in \texttt{datafusion-spark} crate using Arrow's \texttt{MapBuilder}, supporting per-row delimiters, null handling, and EXCEPTION duplicate-key policy: {\color{teal}\underline{\href{https://github.com/apache/datafusion/pull/20120}{PR \#20120}}} (merged Feb 2026)
 	\end{rSubsection}
-        \begin{rSubsection}{Apache DataFusion Comet: A high-performance Spark accelerator built on DataFusion (Apache Software Foundation)}{2025 - Present}{\color{teal}\underline{\href{https://github.com/apache/datafusion-comet}{Apache DataFusion Comet Contributor, Tech Stack: \color{teal}\textbf{Rust, Scala, Apache Spark}}}}{}
+        \begin{rSubsection}{Apache DataFusion Comet: A high-performance Spark accelerator built on DataFusion (Apache Software Foundation)}{2025 - Present}{Apache DataFusion Comet Contributor. Tech Stack: {\color{teal}\textbf{Rust, Scala, Apache Spark}}}{{\color{teal}\underline{\href{https://github.com/apache/datafusion-comet}{GitHub}}}}
 		\item Wired \texttt{StringToMap} Spark expression to native \texttt{SparkStrToMap} UDF, enabling native acceleration for Spark map-creation workloads; added SQL file test coverage via \texttt{CometSqlFileTestSuite}: {\color{teal}\underline{\href{https://github.com/apache/datafusion-comet/pull/3654}{PR \#3654}}}
 	\end{rSubsection}
-        \begin{rSubsection}{redis/rueidis: A fast Golang Redis client that does auto pipelining and supports client side caching (1.9k stars)}{Oct 2023 - Present}{\color{teal}\underline{\href{https://github.com/redis/rueidis/pull/395}{link to pull request, Tech Stack: \color{teal}\textbf{Go, Redis}}}}{}
+        \begin{rSubsection}{redis/rueidis: A fast Golang Redis client that does auto pipelining and supports client side caching (1.9k stars)}{Oct 2023 - Present}{Contributor. Tech Stack: {\color{teal}\textbf{Go, Redis}}}{{\color{teal}\underline{\href{https://github.com/redis/rueidis/pull/395}{PR \#395}}}}
 		\item Implemented go-redis API Adapter
 	\end{rSubsection}
 \end{rSection}

@@ -25,6 +25,9 @@
 \usepackage[parfill]{parskip} % Remove paragraph indentation
 \usepackage{array} % Required for boldface (\bf and \bfseries) tabular columns
 \usepackage{ifthen} % Required for ifthenelse statements
+\usepackage[margin=0.75in]{geometry} % Widen text area compared with article defaults
+\usepackage{xcolor} % Required for colored text in links and tech stack labels
+\usepackage[hidelinks]{hyperref} % Required for clickable links without PDF link boxes
 
 \pagestyle{empty} % Suppress page numbers
 

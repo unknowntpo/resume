@@ -9,3 +9,7 @@
 *.out
 *.run.xml
 *.synctex.gz
+
+# Generated output directory
+output/*
+!output/resume_2026.pdf
