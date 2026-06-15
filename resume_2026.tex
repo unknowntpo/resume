@@ -74,11 +74,33 @@
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{Open Source Contributions}
-\begin{rSubsection}{}{}{}{}
-		\item \textbf{Apache Gravitino Committer} ({\color{teal}\underline{\href{https://github.com/apache/gravitino}{GitHub}}}): implemented PostgreSQL/MySQL container-suite management for integration tests, built reproducible Docker image workflows, reduced Hive image size by \textbf{420MB}, and ported partition APIs to the Python client.
-		\item \textbf{Apache Kafka Contributor} ({\color{teal}\underline{\href{https://github.com/apache/kafka}{GitHub}}}): fixed JVM container awareness in producer perf tests and corrected partition switching so offsets are committed before partition changes: {\color{teal}\underline{\href{https://github.com/apache/kafka/pull/21584}{PR \#21584}}}.
-		\item \textbf{Apache DataFusion and Comet Contributor}: implemented Spark str-to-map in Rust ({\color{teal}\underline{\href{https://github.com/apache/datafusion/pull/20120}{PR \#20120}}}) and wired Comet's native SparkStrToMap UDF with SQL file coverage ({\color{teal}\underline{\href{https://github.com/apache/datafusion-comet/pull/3654}{PR \#3654}}}).
-		\item \textbf{redis/rueidis Contributor} ({\color{teal}\underline{\href{https://github.com/redis/rueidis/pull/395}{PR \#395}}}): implemented the go-redis API Adapter for teams migrating from go-redis.
+\begin{rSubsection}{Apache Kafka}{2024 - Present}{Apache Kafka Contributor. Tech Stack: {\color{teal}\textbf{Java, JVM}}}{{\color{teal}\underline{\href{https://github.com/apache/kafka}{GitHub}}}}
+		\item Collaborating on Kafka Streams \textbf{KIP-770} input-buffer work ({\color{teal}\underline{\href{https://github.com/apache/kafka/pull/22458}{PR \#22458}}}) to add \path{input.buffer.max.bytes}, bounding buffering by bytes instead of record count for safer memory control under variable record sizes and partition assignments.
+		\item Fixed \textbf{JVM container awareness} in producer performance tests and offset commit-before-partition-switch correctness ({\color{teal}\underline{\href{https://github.com/apache/kafka/pull/21584}{PR \#21584}}}).
+	\end{rSubsection}
+
+\begin{rSubsection}{Apache Gravitino}{2024 - Present}{Apache Gravitino Committer. Tech Stack: {\color{teal}\textbf{Java, Python, Docker, Kubernetes}}}{{\color{teal}\underline{\href{https://github.com/apache/gravitino}{GitHub}}}}
+		\item Added PostgreSQL/MySQL integration-test container management and reproducible Docker image workflows; reduced Hive image size by \textbf{420MB} and ported Python client partition APIs.
+	\end{rSubsection}
+
+\begin{rSubsection}{Apache DataFusion and DataFusion Comet}{2025 - Present}{Contributor. Tech Stack: {\color{teal}\textbf{Rust, Scala, Apache Spark}}}{{\color{teal}\underline{\href{https://github.com/apache/datafusion}{GitHub}}}}
+		\item Implemented Spark-compatible \texttt{str\_to\_map} in Rust ({\color{teal}\underline{\href{https://github.com/apache/datafusion/pull/20120}{PR \#20120}}}) and wired Comet's native SparkStrToMap UDF with SQL file coverage ({\color{teal}\underline{\href{https://github.com/apache/datafusion-comet/pull/3654}{PR \#3654}}}).
+	\end{rSubsection}
+
+\begin{rSubsection}{redis/rueidis}{Oct 2023 - Present}{Contributor. Tech Stack: {\color{teal}\textbf{Go, Redis}}}{{\color{teal}\underline{\href{https://github.com/redis/rueidis/pull/395}{PR \#395}}}}
+		\item Implemented the go-redis API Adapter for teams migrating from go-redis.
+	\end{rSubsection}
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	SELECTED PROJECTS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Selected Projects}
+\begin{rSubsection}{TWFoundry}{2026}{Hybrid cloud / homelab Taiwan operations data platform. Tech Stack: {\color{teal}\textbf{Airflow, Kafka, ClickHouse, Cloudflare R2, Workers/Pages, Docker, TypeScript}}}{{\color{teal}\underline{\href{https://github.com/unknowntpo/twfoundry}{GitHub}}}}
+		\item Designed a hybrid cloud / homelab data platform for Taiwan operations, using homelab Airflow and Kafka for scheduled ingestion and backfills, Cloudflare R2 for raw and projection artifact storage, ClickHouse for OLAP analytics, and Cloudflare Workers / Pages for public edge APIs and UI delivery.
+		\item Built a materialized edge serving model where Workers / Pages Functions read partitioned R2 artifacts and expose replayable map/timeline projection APIs without falling back to homelab on cache misses.
+		\item Modeled TDX transit observations in ClickHouse across service date, time slot, route, direction, vehicle, freshness, route progress, and stop context to support route density, data-quality, and headway / bunching analysis.
 	\end{rSubsection}
 \end{rSection}
 
