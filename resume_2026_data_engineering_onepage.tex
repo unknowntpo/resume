@@ -71,7 +71,7 @@
 \begin{rSection}{Summary}
 \begin{rSubsection}{}{}{}{}
             \item Backend / Data Infrastructure Engineer focused on \textbf{Kafka}, \textbf{PostgreSQL}, \textbf{distributed systems}, and \textbf{performance tuning}; delivered wins including first-byte latency \textbf{100s to 5s}, WebUI load time \textbf{60s to 1s}, and simulation jobs \textbf{2hr to 1min}.
-            \item Core stack: \textbf{Go}, \textbf{Java}, \textbf{Rust}, \textbf{TypeScript}, \textbf{PostgreSQL}, \textbf{Kafka}, \textbf{ClickHouse}, \textbf{Cloudflare R2}, \textbf{Docker}, \textbf{Kubernetes}, \textbf{Airflow}, \textbf{Prometheus/Grafana}.
+            \item Core stack: \textbf{Go}, \textbf{Java}, \textbf{Rust}, \textbf{TypeScript}, \textbf{Kafka}, \textbf{Flink}, \textbf{Spark}, \textbf{ClickHouse}, \textbf{Iceberg}, \textbf{PostgreSQL}, \textbf{Airflow}, \textbf{Kubernetes}, \textbf{Docker}, \textbf{Cloudflare R2}.
 	\end{rSubsection}
 \end{rSection}
 
@@ -84,7 +84,6 @@
 		\item \textbf{Apache Kafka Contributor}: collaborating on Kafka Streams \textbf{KIP-770} input-buffer byte bounds ({\color{teal}\underline{\href{https://github.com/apache/kafka/pull/22458}{PR \#22458}}}) and fixed offset commit-before-partition-switch correctness ({\color{teal}\underline{\href{https://github.com/apache/kafka/pull/21584}{PR \#21584}}}).
 		\item \textbf{Apache Gravitino Committer}: added PostgreSQL/MySQL integration-test container management, reproducible Docker image workflows, and reduced Hive image size by \textbf{420MB}.
 		\item \textbf{Apache DataFusion / Comet Contributor}: implemented Spark-compatible \texttt{str\_to\_map} in Rust and wired Comet's native SparkStrToMap UDF with SQL coverage.
-		\item \textbf{redis/rueidis Contributor}: implemented the go-redis API adapter for migration compatibility.
 	\end{rSubsection}
 \end{rSection}
 
@@ -93,8 +92,8 @@
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{Selected Projects}
-\begin{rSubsection}{TWFoundry}{2026}{Hybrid cloud / homelab Taiwan operations platform. Tech Stack: {\color{teal}\textbf{Airflow, Kafka, ClickHouse, Cloudflare R2, Workers/Pages, Docker}}}{{\color{teal}\underline{\href{https://github.com/unknowntpo/twfoundry}{GitHub}}}}
-		\item Designed a data platform using Airflow/Kafka for ingestion and backfills, R2 for raw and projection artifacts, ClickHouse for OLAP analytics, and Workers / Pages for edge-served map/timeline APIs without homelab fallback on cache misses.
+\begin{rSubsection}{TWFoundry}{2026}{Real-time Taiwan transit data platform (hybrid cloud / homelab). Tech Stack: {\color{teal}\textbf{Kafka, Flink, Iceberg, ClickHouse, Airflow, Kubernetes (k0s), Cloudflare R2 / Workers / Pages, Docker}}}{{\color{teal}\underline{\href{https://github.com/unknowntpo/twfoundry}{GitHub}}}}
+		\item Built a real-time transit platform: \textbf{Kafka} ingestion into a partitioned \textbf{R2} lake on self-hosted \textbf{k0s Kubernetes}; a \textbf{Flink} speed layer for live anomaly detection (service-gap / bunching) and an \textbf{Airflow}-orchestrated \textbf{Iceberg} lakehouse + \textbf{ClickHouse} OLAP batch layer; edge-served via \textbf{Cloudflare Workers / Pages}.
 	\end{rSubsection}
 \end{rSection}
 
@@ -115,6 +114,14 @@
 		\end{rSubsection}
 	\end{rSection}
 
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+National Taiwan Ocean University, Electrical Engineering coursework (Drop Out) \hfill 2013 - 2017
+\end{rSection}
 
 %----------------------------------------------------------------------------------------
 %	EXAMPLE SECTION
