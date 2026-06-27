@@ -2,18 +2,18 @@
 
 您好：
 
-我想應徵 Backend / Data Infrastructure Engineer 相關職位。我最想強調的是：我不是只會寫單一 pipeline 的 data engineer，而是能把資料工程做成 end-to-end product 的工程師。我可以從產品介面與使用情境出發，設計資料流、實作後端與 pipeline、部署與維運系統，也能在效能或正確性出問題時深入 runtime、profiling、SQL plan 與分散式系統細節，把問題真正解掉。
+我想應徵 Backend / Data Infrastructure Engineer 相關職位。我的定位是能把資料產品從頭做到尾的 data engineer：從產品需求與使用情境出發，設計資料流、實作後端與 pipeline、把系統部署上線並維運；遇到效能或正確性的問題時，也能深入 runtime、profiling、SQL plan 與分散式系統細節，把問題追到根因並解決。
 
-TWFoundry 是最能代表這個特質的例子。我把它做成一個台灣公共交通資料平台，將 TDX 公車資料轉成可操作的監控 dashboard。這個系統涵蓋完整資料產品路徑：TDX 資料攝取、Kafka streaming handoff、lake/archive path、ClickHouse analytics，用來分析 route density、data freshness 與 bunching signals，再透過 R2 發布資料，並由 Cloudflare 提供 dashboard / API serving。我也把產品 contract 定義成 map-first ontology model，讓 source-specific data 先被正規化為 observations、projections 與 user-facing overlays，而不是讓原始資料格式直接滲透到 UI。這代表我擅長的資料工程方式：不只是搬資料，而是把資料變成可用、可操作、可演進的產品。
+這種深入底層的工作方式，在開源社群也有具體成果。我是 Apache Gravitino committer，也對 Apache Kafka、Apache DataFusion、DataFusion Comet 與 redis/rueidis 有實際貢獻。Kafka 方面，我做過 JVM container awareness、partition switching 時的 offset commit 行為，以及 Kafka Streams 裡 byte-bounded input buffer 的記憶體管理。這些都是先把系統實際的 runtime 行為搞清楚，找出正確性或效能會出問題的邊界，再用測試、profiling 或 metrics 驗證修改。
 
-在實際工作中，我也處理過複雜效能問題。過去在 Lawsnote，我針對 CPU 密集型運算結果實作 HTTP streaming，將 first-byte latency 從約 100 秒降至 5 秒；也建置 MinIO events 與 Elasticsearch 的資料完整性監控流程，用於主動偵測資料缺失並提升 pipeline reliability。除此之外，我使用 Pyroscope 分析並修正 NAPI-rs 相關效能問題，也參與 LLM service 與政府法規資料 crawling、re-run、re-parse workflows 的建置。
+除了技術深度，我也能獨立交付一個完整的資料產品，TWFoundry 就是最好的例子。它的目標是一個台灣公共資料平台，讓管理者能即時掌握現場實際發生的狀況：現在發生什麼、在哪裡、隨時間如何變化、哪些路線或區域受到影響。目前以公車營運作為第一個切入點，重點不在「哪一班車誤點」，而在「這條路線在這個時段的服務穩不穩定」——系統從即時車輛位置推算出班次密度、車輛群聚（bunching）、以及整體服務穩定度等指標，再搭配清楚的資料新鮮度與品質狀態，讓使用者知道眼前的畫面可不可信。底層涵蓋從資料收集、串流、儲存、分析到發布的完整路徑，但對使用者只呈現一張可操作的地圖：原始資料的來源與格式都被擋在產品外面，正規化成地圖上能直接判讀的觀測與圖層，交給管理者真正能用來做決策的資訊。
 
-在 Mediatek contract 期間，我維護低功耗模擬與 benchmark 的資料倉儲及後端服務。透過 PostgreSQL index-only scan，我將 WebUI 載入時間從約 60 秒降至 1 秒；使用 Pyroscope eBPF 找出匯入瓶頸後，再以 PostgreSQL bulk import 將耗時模擬任務從約 2 小時縮短至 1 分鐘。我也設計過以 message queue 為基礎的微服務架構，維運 5 節點服務叢集，並使用 Prometheus、Grafana、OpenTelemetry、Pyroscope 建立觀測性。
+在實務上，我也花了不少時間處理生產環境的效能問題。在 Lawsnote，我針對 CPU 密集的運算結果實作 HTTP streaming，把 first-byte latency 從約 100 秒降到 5 秒；用 MinIO events 搭配 Elasticsearch 建立資料完整性監控，提早抓出缺漏的資料；用 Pyroscope 追查並修掉一個 NAPI-rs 的效能問題；也參與 LLM service，以及政府法規資料的 crawling、re-run、re-parse workflow。
 
-除了產品與工作經驗，我也持續參與開源資料系統。目前我是 Apache Gravitino committer，也對 Apache Kafka、Apache DataFusion、DataFusion Comet 與 redis/rueidis 有實際貢獻。在 Kafka 方面，我處理過 JVM container awareness、partition switching 時的 offset commit 行為，也參與 Kafka Streams byte-bounded input buffer 相關 memory-management 工作。這些經驗反映同一種工程習慣：先理解 runtime behavior、correctness boundary 與 performance boundary，再用測試、profiling、metrics 或 production-facing behavior 驗證修改。
+在 Mediatek 的 contract 期間，我維護一套低功耗模擬與 benchmark 的資料倉儲。把 WebUI 原本的慢查詢改用 PostgreSQL index-only scan 重寫後，載入時間從約 60 秒降到 1 秒；用 Pyroscope eBPF profile 出匯入瓶頸後，改用 PostgreSQL bulk import，把一個要跑約 2 小時的模擬任務縮到 1 分鐘。我也設計過以 message queue 為基礎的微服務架構，維運 5 節點的服務叢集，並用 Prometheus、Grafana、OpenTelemetry、Pyroscope 維持系統的可觀測性。
 
-若團隊正在建置 data pipelines、analytics platforms、distributed systems 或 backend infrastructure，我可以同時貢獻 end-to-end product ownership 與深入實作能力。
+若團隊正在建置 data pipeline、analytics platform、distributed system 或 backend infrastructure，我可以同時提供 end-to-end 的 ownership，以及把底層難題解掉的實作深度。
 
-謝謝您閱讀我的申請。期待有機會進一步說明我的經驗，以及我可以如何協助團隊改善資料系統與後端平台。
+謝謝您撥空閱讀。期待有機會進一步聊聊我的經驗能如何協助團隊的後端與資料基礎建設。
 
 Eric (Chen-Chien) Chang
