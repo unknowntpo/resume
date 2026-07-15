@@ -1,0 +1,112 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[margin=0.58in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.2em,itemsep=1.5pt,topsep=2pt,parsep=0pt,partopsep=0pt}
+
+\definecolor{ink}{HTML}{18212B}
+\definecolor{navy}{HTML}{173F5F}
+\definecolor{muted}{HTML}{5F6B76}
+\definecolor{rule}{HTML}{CBD4DC}
+\color{ink}
+
+\newcommand{\contactsep}{\hspace{0.55em}{\color{rule}\textbar}\hspace{0.55em}}
+\newcommand{\sectiontitle}[1]{%
+  \vspace{7pt}%
+  {\color{navy}\bfseries\fontsize{10.5}{12}\selectfont\MakeUppercase{#1}}%
+  \vspace{2pt}\par
+  {\color{rule}\hrule height 0.8pt}%
+  \vspace{4pt}%
+}
+\newcommand{\entry}[4]{%
+  \begin{tabularx}{\textwidth}{@{}Xr@{}}
+    {\bfseries #1} & {\color{muted}\bfseries #2} \\
+    {\color{navy}\small #3} & {\color{muted}\small #4}
+  \end{tabularx}%
+  \vspace{-2pt}%
+}
+\newcommand{\metric}[1]{{\color{navy}\bfseries #1}}
+\newcommand{\skillrow}[2]{%
+  {\color{navy}\bfseries #1:} #2\par\vspace{1.5pt}%
+}
+
+\begin{document}
+
+{\fontsize{23}{25}\selectfont\bfseries Eric (Chen-Chien) Chang}\hfill
+{\color{navy}\fontsize{10.5}{12}\selectfont\bfseries BACKEND / DATA INFRASTRUCTURE ENGINEER}
+
+\vspace{4pt}
+{\small
+\href{mailto:e850506@gmail.com}{e850506@gmail.com}\contactsep
++886 932 786 506\contactsep
+\href{https://github.com/unknowntpo}{github.com/unknowntpo}\contactsep
+\href{https://blog.unknowntpo.me}{blog.unknowntpo.me}}
+
+\sectiontitle{Profile}
+Backend and data infrastructure engineer building real-time data products end to end. Experienced in distributed systems, performance engineering, MCP, and open-source data platforms.
+
+\sectiontitle{Experience}
+
+\entry{Lawsnote}{Jan 2024 -- Dec 2024}{Backend Software Engineer}{Taipei, Taiwan}
+\begin{itemize}
+  \item Implemented \textbf{HTTP streaming} for CPU-intensive computation results, reducing first-byte latency from \metric{100s to 5s}.
+  \item Built \textbf{MinIO event} and \textbf{Elasticsearch} monitoring to detect missing data and improve pipeline reliability.
+  \item Profiled and fixed a \textbf{NAPI-rs} performance issue with \textbf{Pyroscope}, improving Node.js native package execution.
+  \item Built an \textbf{LLM service} for regulatory text extraction and automated government-act crawl and re-parse workflows.
+\end{itemize}
+
+\vspace{2pt}
+\entry{MediaTek (Contract)}{Feb 2022 -- Mar 2023}{Backend Software Engineer}{Hsinchu, Taiwan}
+\begin{itemize}
+  \item Cut data-warehouse WebUI load time from \metric{60s to 1s} with \textbf{PostgreSQL index-only scans} (\href{https://blog.unknowntpo.me/idx-only-scan/}{case study}).
+  \item Cut simulation jobs from \metric{2hr to 1min} by profiling with \textbf{Pyroscope eBPF} and applying PostgreSQL bulk import.
+  \item Designed a queue-based microservice architecture and operated a \metric{5-node} cluster for long-running jobs.
+  \item Cut Go service memory use by \metric{50\%} with \textbf{sync.Pool}; instrumented it with Prometheus, OpenTelemetry, and Pyroscope.
+\end{itemize}
+
+\vspace{2pt}
+\entry{National Cheng Kung University}{Sep 2017 -- Jul 2019}{Research Assistant}{Tainan, Taiwan}
+\begin{itemize}
+  \item Conducted FDM 3D-printing research and built experimental tooling with Python, C, MicroPython, and Arduino.
+\end{itemize}
+
+\sectiontitle{Selected Product}
+
+\entry{Locus --- Real-World Context Layer for AI Assistants}{2026 -- Present}{Independent Product}{Cloudflare Workers / R2 / MCP}
+\begin{itemize}
+  \item Built and deployed a remote \textbf{Streamable HTTP MCP} data product that turns natural-language destinations into ranked parking decisions across Taipei, Hsinchu, and Zhubei.
+  \item Designed a five-minute serverless ingestion and materialization pipeline, normalizing heterogeneous municipal and TDX feeds into one provenance-aware contract for \metric{1,271 facilities} (1,238 live-count, 33 static-only).
+  \item Implemented OSM geocoding, regional validation, freshness and coverage semantics, and availability and straight-line distance ranking with Google Maps handoff; passed all six cross-region source-consistency validations against independently fetched authoritative data.
+\end{itemize}
+
+\sectiontitle{Open Source Leadership \& Contributions}
+\begin{itemize}
+  \item \textbf{Apache Kafka Contributor} --- collaborating on Kafka Streams \textbf{KIP-770} input-buffer byte bounds (\href{https://github.com/apache/kafka/pull/22458}{PR \#22458}); fixed JVM container awareness and offset commit-before-partition-switch correctness (\href{https://github.com/apache/kafka/pull/21584}{PR \#21584}).
+  \item \textbf{Apache Gravitino Committer} --- added PostgreSQL/MySQL integration-test container management and reproducible Docker image workflows; reduced the Hive image by \metric{420MB} and ported Python client partition APIs.
+  \item \textbf{Apache DataFusion / Comet Contributor} --- implemented Spark-compatible \texttt{str\_to\_map} in Rust (\href{https://github.com/apache/datafusion/pull/20120}{PR \#20120}) and wired Comet's native SparkStrToMap UDF with SQL coverage (\href{https://github.com/apache/datafusion-comet/pull/3654}{PR \#3654}).
+  \item \textbf{redis/rueidis Contributor} --- implemented the go-redis API Adapter for teams migrating from go-redis (\href{https://github.com/redis/rueidis/pull/395}{PR \#395}).
+\end{itemize}
+
+\sectiontitle{Technical Skills}
+\skillrow{Languages}{Go, Java, Rust, JavaScript / TypeScript, Python, C}
+\skillrow{Data \& processing}{PostgreSQL, ClickHouse, Hive, Kafka, Kafka Streams, Flink, Spark, SQL}
+\skillrow{Infrastructure}{Airflow, Docker, Kubernetes, Linux, GitHub Actions}
+\skillrow{Observability}{Prometheus, Grafana, OpenTelemetry, Pyroscope, Great Expectations}
+
+\sectiontitle{Education}
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+\textbf{National Taiwan Ocean University} --- Electrical Engineering coursework (Drop Out) & \color{muted}\textbf{2013 -- 2017}
+\end{tabularx}
+
+\end{document}
