@@ -1,0 +1,109 @@
+% Build from repository root: just micron-jr90323
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[margin=0.58in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\renewcommand{\familydefault}{\sfdefault}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.2em,itemsep=1.5pt,topsep=2pt,parsep=0pt,partopsep=0pt}
+
+\definecolor{ink}{HTML}{18212B}
+\definecolor{navy}{HTML}{173F5F}
+\definecolor{linkblue}{HTML}{2B6F9E}
+\definecolor{muted}{HTML}{5F6B76}
+\definecolor{rule}{HTML}{CBD4DC}
+\hypersetup{colorlinks=true,urlcolor=linkblue}
+\color{ink}
+
+\newcommand{\contactsep}{\hspace{0.55em}{\color{rule}\textbar}\hspace{0.55em}}
+\newcommand{\sectiontitle}[1]{%
+  \vspace{7pt}%
+  {\color{navy}\bfseries\fontsize{10.5}{12}\selectfont\MakeUppercase{#1}}%
+  \vspace{2pt}\par
+  {\color{rule}\hrule height 0.8pt}%
+  \vspace{4pt}%
+}
+\newcommand{\entry}[4]{%
+  \noindent{\bfseries #1}\hfill{\color{muted}\bfseries #2}\par
+  \noindent{\color{navy}\small #3}\hfill{\color{muted}\small #4}\par
+  \vspace{-2pt}%
+}
+\newcommand{\metric}[1]{{\color{navy}\bfseries #1}}
+\newcommand{\skillrow}[2]{%
+  {\color{navy}\bfseries #1:} #2\par\vspace{1pt}%
+}
+
+\begin{document}
+
+{\fontsize{23}{25}\selectfont\bfseries Eric (Chen-Chien) Chang}\hfill
+{\color{navy}\fontsize{10.5}{12}\selectfont\bfseries DATA ENGINEER / DATA PLATFORMS}
+
+\vspace{4pt}
+{\small
+\href{mailto:e850506@gmail.com}{e850506@gmail.com}\contactsep
++886 932 786 506\contactsep
+\href{https://github.com/unknowntpo}{github.com/unknowntpo}\contactsep
+\href{https://blog.unknowntpo.me}{blog.unknowntpo.me}}
+
+\sectiontitle{Profile}
+Data engineer with backend experience in semiconductor engineering workflows, building reliable data pipelines, distributed systems, and high-performance database services. Apache Kafka contributor and Apache Gravitino committer with hands-on work in streaming, data modeling, observability, performance tuning, and technical documentation.
+
+\sectiontitle{Technical Skills}
+\skillrow{Data Engineering}{Data modeling, streaming pipelines, monitoring \& validation, PostgreSQL performance tuning}
+\skillrow{Languages}{Java, Go, Python, SQL, JavaScript / TypeScript}
+\skillrow{Platforms}{Apache Kafka, Kafka Streams, RisingWave, Apache Iceberg, DuckDB, Docker, OpenTelemetry}
+
+\sectiontitle{Experience}
+
+\entry{\href{https://github.com/opensource4you}{\color{linkblue}\underline{Open Source For You}}}{2024 -- Present}{Independent Open Source Contributor (full-time since 2025)}{Technical Community}
+\begin{itemize}
+  \item \textbf{Apache Kafka Contributor} --- authored \href{https://cwiki.apache.org/confluence/display/KAFKA/KIP-1320}{\color{linkblue}KIP-1320} with a draft PoC (\href{https://github.com/apache/kafka/pull/22758}{\color{linkblue}PR \#22758}); contributing a commit-before-partition-switch fix (\href{https://github.com/apache/kafka/pull/21584}{\color{linkblue}PR \#21584}) and bounded Streams buffering (\href{https://github.com/apache/kafka/pull/22458}{\color{linkblue}PR \#22458}).
+  \item \href{https://whimsy.apache.org/board/minutes/Gravitino.html}{\color{linkblue}\underline{\textbf{Apache Gravitino Committer}}} --- made PostgreSQL/MySQL integration tests reproducible, cut the Hive test image by \metric{420MB}, and completed Python partition APIs.
+  \item \textbf{Community Over Code Asia 2026 Speaker} --- \href{https://asia.communityovercode.org/zh/sessions/streaming-1207387.html}{\color{linkblue}\underline{Kafka Streams DLQ and exactly-once safety (session)}}.
+\end{itemize}
+
+\vspace{4pt}
+\entry{Lawsnote}{Jan 2024 -- Dec 2024}{Backend Software Engineer}{Taipei, Taiwan}
+\begin{itemize}
+  \item Built a monitoring and validation pipeline that reduced detection time for data loss and unhealthy remote agents from \metric{22 days to 1 day}.
+  \item Streamed CPU-intensive analysis results, reducing time to first output from \metric{100s to 5s}.
+  \item Converted ambiguous regulatory text into structured data and automated government-act refreshes.
+  \item Removed a cross-language bottleneck in a Node.js native module through profiling.
+\end{itemize}
+
+\vspace{2pt}
+\entry{MediaTek (Contract)}{Feb 2022 -- Mar 2023}{Backend Software Engineer}{Hsinchu, Taiwan}
+\begin{itemize}
+  \item Reduced PostgreSQL-backed data-warehouse UI latency from \metric{60s to 1s} by redesigning its access path (\href{https://blog.unknowntpo.me/idx-only-scan/}{\color{linkblue}case study}).
+  \item Reduced simulation-data processing from \metric{2hr to 1min}, accelerating semiconductor engineering feedback cycles.
+  \item Kept long-running simulations reliable with a queue-backed service across a \metric{5-node} cluster; cut Go service memory use by \metric{50\%} and added telemetry for failure diagnosis.
+\end{itemize}
+
+\vspace{2pt}
+\entry{National Cheng Kung University}{Sep 2017 -- Jul 2019}{Research Assistant}{Tainan, Taiwan}
+\begin{itemize}
+  \item Conducted FDM 3D-printing research and built experimental tooling with Python, C, MicroPython, and Arduino.
+\end{itemize}
+
+\sectiontitle{Selected Project}
+
+\entry{\href{https://locus.unknowntpo.com}{\color{linkblue}\underline{Locus --- Real-World Context Federation for AI Agents}}}{2026 -- Present}{Independent Technical Project}{MCP / Kafka / RisingWave / Iceberg / DuckDB / Cloudflare}
+\begin{itemize}
+  \item Built and launched Locus, giving AI clients one MCP interface over \metric{2,300+ spatial entities from 13 source IDs}, including \metric{1,800+ parking facilities}, \metric{500+ EV-charging stations}, and live coach telemetry.
+  \item Designed a provider-neutral data model for entities, observations, and relationships, preserving freshness, provenance, coverage gaps, and conflicting records.
+  \item Built a streaming data platform processing \metric{about 28,800 observations/day} with Kafka, RisingWave, Iceberg, and DuckDB, separating online serving from analytics, replay, and audit.
+\end{itemize}
+
+\sectiontitle{Education}
+\noindent\textbf{National Taiwan Ocean University} --- Electrical Engineering coursework, degree not completed\hfill
+{\color{muted}\textbf{2013 -- 2017}}\par
+
+\end{document}
