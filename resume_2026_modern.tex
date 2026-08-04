@@ -7,7 +7,7 @@
 \usepackage{enumitem}
 \usepackage{tabularx}
 \usepackage{xcolor}
-\usepackage[hidelinks]{hyperref}
+\usepackage{hyperref}
 
 \renewcommand{\familydefault}{\sfdefault}
 \pagestyle{empty}
@@ -17,8 +17,10 @@
 
 \definecolor{ink}{HTML}{18212B}
 \definecolor{navy}{HTML}{173F5F}
+\definecolor{linkblue}{HTML}{2B6F9E}
 \definecolor{muted}{HTML}{5F6B76}
 \definecolor{rule}{HTML}{CBD4DC}
+\hypersetup{colorlinks=true,urlcolor=linkblue}
 \color{ink}
 
 \newcommand{\contactsep}{\hspace{0.55em}{\color{rule}\textbar}\hspace{0.55em}}
@@ -38,13 +40,13 @@
 }
 \newcommand{\metric}[1]{{\color{navy}\bfseries #1}}
 \newcommand{\skillrow}[2]{%
-  {\color{navy}\bfseries #1:} #2\par\vspace{1.5pt}%
+  {\color{navy}\bfseries #1:} #2\par\vspace{1pt}%
 }
 
 \begin{document}
 
 {\fontsize{23}{25}\selectfont\bfseries Eric (Chen-Chien) Chang}\hfill
-{\color{navy}\fontsize{10.5}{12}\selectfont\bfseries BACKEND / PRODUCT ENGINEER}
+{\color{navy}\fontsize{10.5}{12}\selectfont\bfseries BACKEND / DATA ENGINEER}
 
 \vspace{4pt}
 {\small
@@ -54,14 +56,22 @@
 \href{https://blog.unknowntpo.me}{blog.unknowntpo.me}}
 
 \sectiontitle{Profile}
-Backend engineer who turns raw data and slow workflows into products people can use. Built systems that structure regulations, cut semiconductor simulation feedback from hours to minutes, and connect AI assistants to live real-world data.
+Backend and data engineer building reliable pipelines and distributed systems for complex data workflows. Full-time independent open-source contributor; Apache Kafka contributor and Apache Gravitino committer with hands-on work in stream processing, database performance, observability, and real-world data federation.
 
 \sectiontitle{Experience}
 
+\entry{\href{https://github.com/opensource4you}{\color{linkblue}\underline{Open Source For You}}}{2024 -- Present}{Independent Open Source Contributor (full-time since 2025)}{Technical Community}
+\begin{itemize}
+  \item \textbf{Apache Kafka Contributor} --- authored \href{https://cwiki.apache.org/confluence/display/KAFKA/KIP-1320}{\color{linkblue}KIP-1320} with a draft PoC (\href{https://github.com/apache/kafka/pull/22758}{\color{linkblue}PR \#22758}); contributing a commit-before-partition-switch fix (\href{https://github.com/apache/kafka/pull/21584}{\color{linkblue}PR \#21584}) and bounded Streams buffering (\href{https://github.com/apache/kafka/pull/22458}{\color{linkblue}PR \#22458}).
+  \item \textbf{Community Over Code Asia 2026 Speaker} --- \href{https://asia.communityovercode.org/zh/sessions/streaming-1207387.html}{\color{linkblue}\underline{Kafka Streams DLQ and exactly-once safety (session)}}.
+  \item \href{https://whimsy.apache.org/board/minutes/Gravitino.html}{\color{linkblue}\underline{\textbf{Apache Gravitino Committer}}} --- made PostgreSQL/MySQL integration tests reproducible, cut the Hive test image by \metric{420MB}, and completed Python partition APIs.
+\end{itemize}
+
+\vspace{4pt}
 \entry{Lawsnote}{Jan 2024 -- Dec 2024}{Backend Software Engineer}{Taipei, Taiwan}
 \begin{itemize}
   \item Streamed CPU-intensive analysis results, letting users see output in \metric{5s instead of waiting 100s}.
-  \item Added monitoring that caught missing source documents before they reached regulatory workflows.
+  \item Built a monitoring pipeline that cut detection time for data loss and unhealthy remote agents from \metric{22 days to 1 day}.
   \item Removed a cross-language bottleneck in a Node.js native module through profiling.
   \item Converted ambiguous regulatory text into structured data and automated government-act refreshes.
 \end{itemize}
@@ -69,7 +79,7 @@ Backend engineer who turns raw data and slow workflows into products people can 
 \vspace{2pt}
 \entry{MediaTek (Contract)}{Feb 2022 -- Mar 2023}{Backend Software Engineer}{Hsinchu, Taiwan}
 \begin{itemize}
-  \item Cut engineers' data-warehouse UI wait from \metric{60s to 1s} by redesigning its PostgreSQL access path (\href{https://blog.unknowntpo.me/idx-only-scan/}{case study}).
+  \item Cut engineers' data-warehouse UI wait from \metric{60s to 1s} by redesigning its PostgreSQL access path (\href{https://blog.unknowntpo.me/idx-only-scan/}{\color{linkblue}case study}).
   \item Cut simulation-data processing from \metric{2hr to 1min}, shortening engineering feedback cycles.
   \item Kept long-running simulations reliable with a queue-backed service across a \metric{5-node} cluster.
   \item Cut Go service memory use by \metric{50\%} and added telemetry to diagnose failures and resource pressure.
@@ -83,30 +93,21 @@ Backend engineer who turns raw data and slow workflows into products people can 
 
 \sectiontitle{Selected Product}
 
-\entry{\href{https://locus.unknowntpo.com}{Locus --- Real-World Context Federation for AI Agents}}{2026 -- Present}{Independent Open-Source Product}{Cloudflare Workers / R2 / MCP}
+\entry{\href{https://locus.unknowntpo.com}{\color{linkblue}\underline{Locus --- Real-World Context Federation for AI Agents}}}{2026 -- Present}{Independent Technical Project}{MCP / Kafka / RisingWave / Iceberg / DuckDB / Cloudflare}
 \begin{itemize}
-  \item Built and launched a federation layer that gives AI clients one MCP connection to trustworthy live context across providers.
-  \item Designed a provider-neutral contract for identity, location, freshness, expiry, provenance, confidence, coverage gaps, partial failures, and conflicting observations; backed it with scheduled TDX ingestion and R2 projections.
-  \item Shipped source-backed decisions that combine available parking with compatible EV chargers across ChatGPT and text-only clients, explaining conflicts and requiring confirmation before relaxing live-availability constraints.
-\end{itemize}
-
-\sectiontitle{Open Source Leadership \& Contributions}
-\begin{itemize}
-  \item \textbf{Apache Kafka Contributor} --- fixed offset commits during partition switching and JVM container resource detection (\href{https://github.com/apache/kafka/pull/21584}{PR \#21584}); now contributing bounded buffering to Kafka Streams (\href{https://github.com/apache/kafka/pull/22458}{PR \#22458}).
-  \item \textbf{Apache Gravitino Committer} --- made PostgreSQL/MySQL integration tests reproducible, cut the Hive test image by \metric{420MB}, and completed Python partition APIs.
-  \item \textbf{Apache DataFusion / Comet Contributor} --- added Spark-compatible SQL behavior in Rust and connected it to Comet's native execution with end-to-end coverage.
-  \item \textbf{redis/rueidis Contributor} --- built a compatibility adapter that lets teams migrate from go-redis with fewer application changes (\href{https://github.com/redis/rueidis/pull/395}{PR \#395}).
+  \item Built and launched Locus, giving AI clients one MCP interface over \metric{2,300+ spatial entities from 13 source IDs}, including \metric{1,800+ parking facilities}, \metric{500+ EV-charging stations}, and live coach telemetry.
+  \item Designed a provider-neutral semantic layer for entities, observations, and relationships that preserves freshness, provenance, coverage gaps, and conflicts.
+  \item Built a streaming lakehouse for minute-level coach telemetry (\metric{about 28,800 observations/day}) with Kafka, RisingWave, Iceberg, and DuckDB, separating online serving from analytics, replay, and audit.
 \end{itemize}
 
 \sectiontitle{Technical Skills}
-\skillrow{Languages}{Go, Java, Rust, JavaScript / TypeScript, Python, C}
-\skillrow{Data \& processing}{PostgreSQL, ClickHouse, Hive, Kafka, Kafka Streams, Flink, Spark, SQL}
-\skillrow{Infrastructure}{Airflow, Docker, Kubernetes, Linux, GitHub Actions}
-\skillrow{Observability}{Prometheus, Grafana, OpenTelemetry, Pyroscope, Great Expectations}
+\skillrow{Languages}{Java, Go, JavaScript / TypeScript, Python, SQL}
+\skillrow{Data \& Streaming}{Apache Kafka, Kafka Streams, PostgreSQL, RisingWave, Apache Iceberg, DuckDB}
+\skillrow{Platforms \& Observability}{Node.js, Docker, Cloudflare Workers, OpenTelemetry, Model Context Protocol (MCP)}
 
 \sectiontitle{Education}
 \begin{tabularx}{\textwidth}{@{}Xr@{}}
-\textbf{National Taiwan Ocean University} --- Electrical Engineering coursework (Drop Out) & \color{muted}\textbf{2013 -- 2017}
+\textbf{National Taiwan Ocean University} --- Electrical Engineering coursework, degree not completed & \color{muted}\textbf{2013 -- 2017}
 \end{tabularx}
 
 \end{document}
