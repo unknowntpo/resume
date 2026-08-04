@@ -4,8 +4,8 @@
 
 - Mode: Producer handoff for a Cloud Agent.
 - Current goal: Keep a polished, ATS-readable, one-page English resume for Backend / Data Engineer roles.
-- Latest completed outcome: Added a compact standalone `TECHNICAL SKILLS` section while preserving the one-page PDF.
-- Next desired outcome: Continue ATS hardening without changing the visual style or converting the resume into Cake / Yourator formats.
+- Latest completed outcome: Replaced table-based entry and education headers with table-free text flow while preserving the visual style and one-page PDF.
+- Next desired outcome: Continue only with evidence-backed ATS improvements or a job-specific copy based on a concrete job description.
 
 ## Project State
 
@@ -15,7 +15,7 @@
 - Important source: `resume_2026_modern.tex`
 - Final artifact: `output/pdf/resume_2026_modern.pdf`
 - This handoff: `docs/current-session-handoff.md`
-- The worktree also contains unrelated user-owned changes and untracked files. Do not stage with `git add -A`.
+- The worktree may contain unrelated user-owned changes and untracked files. Do not stage with `git add -A`.
 
 ## What Changed
 
@@ -30,6 +30,8 @@
 - Added the Lawsnote monitoring result: detection time reduced from 22 days to 1 day.
 - Made education wording neutral: `Electrical Engineering coursework, degree not completed`.
 - Added a compact standalone `TECHNICAL SKILLS` section and removed duplicate per-experience stack lines.
+- Removed `tabularx` from experience/product and education headers. The new table-free layout keeps right-aligned dates and locations while improving plain-text reading order.
+- Cleaned the Draft PR scope so application trackers and cover letters are not part of the branch diff.
 
 ## Decisions
 
@@ -52,28 +54,29 @@
   3. Confirm `Pages: 1` with `pdfinfo output/pdf/resume_2026_modern.pdf`.
   4. Render with `pdftoppm -png -r 150 output/pdf/resume_2026_modern.pdf tmp/pdfs/<name>/resume_2026_modern`.
   5. Visually inspect the rendered PNG after every layout change.
-  6. Check ATS reading order with `pdftotext -layout output/pdf/resume_2026_modern.pdf -`.
+  6. Check ATS reading order with both `pdftotext -layout output/pdf/resume_2026_modern.pdf -` and `pdftotext output/pdf/resume_2026_modern.pdf -`.
 - Git publishing:
-  - Stage only `resume_2026_modern.tex`, `output/pdf/resume_2026_modern.pdf`, and this handoff unless the user explicitly expands scope.
-  - Host GitHub CLI authentication was verified before publishing this branch.
+  - The intended PR diff is limited to `resume_2026_modern.tex`, `output/pdf/resume_2026_modern.pdf`, and this handoff unless the user explicitly expands scope.
+  - Never include cover letters, application trackers, IDE metadata, build logs, rendered PNGs, or temporary files.
 
 ## Verification
 
-- Passed: LaTeX compilation.
+- Passed: LaTeX compilation without overfull or underfull boxes.
 - Passed: PDF is exactly one US Letter page.
-- Passed: visual inspection shows no clipping, overlap, or unreadable text.
+- Passed: visual inspection shows no clipping, overlap, broken glyphs, or unreadable text.
 - Passed: PDF text is selectable and extractable.
 - Passed: hyperlinks are embedded in the PDF.
+- Passed: table-free entry headers preserve company/date and title/location row order in `pdftotext -layout`; the prior location-before-title issue is removed.
+- Passed: `TECHNICAL SKILLS` and `Model Context Protocol (MCP)` remain extractable.
 - Not completed: real Cake / Yourator parser comparison. The user prefers direct PDF upload and does not want platform-format conversion.
-- Known warning: experience headings use `tabularx`; plain-text extraction can order company/date/location/title differently. Consider removing the table only if the same visual alignment and one-page constraint can be preserved.
 
 ## Next Steps
 
-1. First action: inspect `git status -sb`, the current PDF, and the current TeX before editing; preserve unrelated user changes.
-2. If continuing ATS optimization, prototype a table-free `\entry` header and compare `pdftotext -layout` ordering. Keep the current version if visual or one-page quality regresses.
-3. Optionally create a job-specific copy only when a concrete job description is supplied; do not replace the general master resume with unverified keywords.
+1. Before any new edit, inspect the current TeX, rendered PDF, and PR file list; preserve the three-file publishing scope.
+2. Tailor a separate copy only after receiving a concrete job description. Keep the general master resume evidence-based and free of unverified keywords.
+3. For platform testing, attach the repository PDF directly to Cake / Yourator auto-fill preview without saving a platform-generated resume.
 
 ## Unknowns
 
-- Cake / Yourator may parse the PDF differently from local text extraction. Test only through direct PDF attachment or auto-fill preview, without saving a platform-generated resume.
+- Cake / Yourator may parse the PDF differently from local extraction tools; direct upload remains the only meaningful validation.
 - Whether the user wants a separate ATS-specific `.docx` remains undecided; do not create one without a direct request.

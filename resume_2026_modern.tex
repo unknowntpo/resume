@@ -5,7 +5,6 @@
 \usepackage{helvet}
 \usepackage{microtype}
 \usepackage{enumitem}
-\usepackage{tabularx}
 \usepackage{xcolor}
 \usepackage{hyperref}
 
@@ -32,10 +31,8 @@
   \vspace{4pt}%
 }
 \newcommand{\entry}[4]{%
-  \begin{tabularx}{\textwidth}{@{}Xr@{}}
-    {\bfseries #1} & {\color{muted}\bfseries #2} \\
-    {\color{navy}\small #3} & {\color{muted}\small #4}
-  \end{tabularx}%
+  \noindent{\bfseries #1}\hfill{\color{muted}\bfseries #2}\par
+  \noindent{\color{navy}\small #3}\hfill{\color{muted}\small #4}\par
   \vspace{-2pt}%
 }
 \newcommand{\metric}[1]{{\color{navy}\bfseries #1}}
@@ -106,8 +103,7 @@ Backend and data engineer building reliable pipelines and distributed systems fo
 \skillrow{Platforms \& Observability}{Node.js, Docker, Cloudflare Workers, OpenTelemetry, Model Context Protocol (MCP)}
 
 \sectiontitle{Education}
-\begin{tabularx}{\textwidth}{@{}Xr@{}}
-\textbf{National Taiwan Ocean University} --- Electrical Engineering coursework, degree not completed & \color{muted}\textbf{2013 -- 2017}
-\end{tabularx}
+\noindent\textbf{National Taiwan Ocean University} --- Electrical Engineering coursework, degree not completed\hfill
+{\color{muted}\textbf{2013 -- 2017}}\par
 
 \end{document}
